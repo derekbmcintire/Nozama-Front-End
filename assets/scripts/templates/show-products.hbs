@@ -5,15 +5,14 @@
     <div>Name: {{product.name}}</div>
     <div>Description: {{product.description}}</div>
     {{!-- <div>Stock: {{product.stock}}</div> --}}
-      {{!-- <div class="add-resource-product"> --}}
-        {{!-- <form class="add-form">
-          <fieldset>
-          <input class="add-button" type ="submit" name="submit" data-id="{{product.id}}" value="Add Player"></input>
-          <input type="text" name='fantasy_product[product_id]' class="clear-input" placeholder='id'>
-          <input class="id-value" name="fantasy_product[product_id]" value="{{product.id}}" type="hidden"></input>
-          </fieldset>
-        </form>
-      </div> --}}
-      {{!-- <div><button class="remove">hide product</button></div> --}}
+    {{!-- <div class="add-resource-product">
+      <form class="add-product-form">
+        <fieldset>
+        <input class="add-to-orders-button" type ="submit" name="submit" data-id="{{product.id}}" value="Add Product"></input>
+        <input type="text" name='order[product_id]' class="clear-input" placeholder='id'>
+        <input class="id-value" name="order[product_id]" value="{{product.id}}" type="hidden"></input>
+        </fieldset>
+      </form>
+    </div> --}}
     </ul>
 {{/each}}
