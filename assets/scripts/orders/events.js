@@ -1,8 +1,11 @@
 'use strict'
 
+const ordersUi = require('./ui')
+
 const showCart = function () {
   $('.products-wrap').hide()
   $('.shopping-cart').show()
+  ordersUi.onShowCart()
 }
 
 const hideCart = function () {
