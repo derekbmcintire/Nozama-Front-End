@@ -20,6 +20,9 @@ const signInSuccess = function (data) {
   store.user = data.user
   console.log(store.data)
   $('#sign-message').text('You have signed in successfully')
+  $('.main').show()
+  $('.sign-in-up-wrap').hide()
+  // reminder from brian { add html classes to clear forms }
 }
 
 // display message on sign in failure
@@ -33,6 +36,9 @@ const signInFailure = function () {
 const signOutSuccess = function () {
   console.log('sign out success')
   $('#sign-message').text('You have signed out successfully')
+  $('.main').hide()
+  $('.sign-in-up-wrap').show()
+  // reminder from brian { add html classes to clear forms }
 }
 
 // display message on sign out failure
