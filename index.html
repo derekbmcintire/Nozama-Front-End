@@ -66,7 +66,18 @@
         <h4>Your Cart</h4>
         <div class="cart-products">
         </div>
-        <button id="submit-cart">Submit Order</button>
+        <form action="/purchases" method="POST">
+          <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_OTB8FL8IFKn9v24Qi7h64eCz"
+          data-amount="2000"
+          data-name="Demo Site"
+          data-description="2 widgets"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto">
+        </script>
+      </form>
+        <!-- <button id="submit-cart">Submit Order</button> -->>
         <button id="exit-cart">Exit Cart</button>
       </div>
 
