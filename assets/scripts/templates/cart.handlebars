@@ -1,0 +1,12 @@
+{{#each products as |product|}}
+
+<div class="cart-product-display" data-id="{{product.id}}">
+  <ul>
+    <li>{{product.name}}</li>
+    <li>{{product.description}}</li>
+    <li>{{product.price}}</li>
+  </ul>
+  <button class="remove-product">Remove</button>
+</div>
+
+{{/each}}
