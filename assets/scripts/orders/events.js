@@ -29,10 +29,21 @@ const onSubmitCart = function () {
     .catch(ui.submitOrderFailure)
 }
 
+const onRemoveProduct = function () {
+  const productId = $(event.target).parent().data('id')
+  const productArray = store.currentCart.currentProducts
+  store.currentCart.currentProducts = productArray.filter((product) => {
+    return product.id !== productId
+  })
+  hideCart()
+  showCart()
+}
+
 const addOrderHandlers = function () {
   $('#show-shopping-cart').on('click', showCart)
   $('#exit-cart').on('click', hideCart)
   $('#submit-cart').on('click', onSubmitCart)
+  $('.cart-products').on('click', '.remove-product', onRemoveProduct)
 }
 
 module.exports = {
