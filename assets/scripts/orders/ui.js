@@ -12,6 +12,16 @@ const onShowCart = function () {
   $('.cart-products').append(cart({ products: data }))
 }
 
+const submitOrderSuccess = function () {
+  console.log('HOLY SHIT YOU FUCKING DID IT!')
+}
+
+const submitOrderFailure = function () {
+  console.log('You are not good at this')
+}
+
 module.exports = {
-  onShowCart
+  onShowCart,
+  submitOrderSuccess,
+  submitOrderFailure
 }
