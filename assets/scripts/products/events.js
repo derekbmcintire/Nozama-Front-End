@@ -1,8 +1,8 @@
 'use strict'
 
-const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
 const onGetProducts = function (event) {
   event.preventDefault()
@@ -11,16 +11,18 @@ const onGetProducts = function (event) {
     .catch(ui.onGetProductsFailure)
 }
 
-const onAddProduct = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  console.log(data)
+const onAddProduct = function () {
+  const currentId = $(event.target).parent().parent().data('id')
+  const item = store.products.filter((product) => product.id === currentId)
+  store.currentCart.currentProducts.push(item[0])
+  console.log('current products are ', store.currentCart.currentProducts)
 }
 
 const addProductHandlers = function () {
   $('.dummy-button-get').on('click', onGetProducts)
   // $('.dummy-button-get-single').on('.click', onGetSingleProduct)
-  $('.show-products-content').on('click', 'add-product-button', onAddProduct)
+  $('.show-products-content').on('click', '.add-product-button', onAddProduct)
+  console.log('this happens')
 }
 
 module.exports = {
