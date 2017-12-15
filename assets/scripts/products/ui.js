@@ -1,14 +1,17 @@
 'use strict'
 
+const store = require('../store')
+
 const showProductsHtml = require('../templates/show-products.hbs')
 
 // Get products index ui show data
 const onGetProductsSuccess = function (data) {
+  store.products = data.products
+  // console.log('store is ', store.products)
   const showProducts = showProductsHtml({ products: data.products })
   // $('.content').html('')
   $('.show-products-content').append(showProducts)
   console.log('get success')
-  console.log('data is', data)
 }
 
 // Get products index show failure message + error

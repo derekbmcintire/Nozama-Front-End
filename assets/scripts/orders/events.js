@@ -11,6 +11,7 @@ const showCart = function () {
 const hideCart = function () {
   $('.shopping-cart').hide()
   $('.products-wrap').show()
+  $('.cart-products').html('')
 }
 
 const addOrderHandlers = function () {
