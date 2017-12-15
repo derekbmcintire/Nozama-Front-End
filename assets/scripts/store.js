@@ -16,7 +16,8 @@ const store = {
         quantity: 2
       }],
       total: 15
-    }
+    },
+    currentProducts: []
   }
 }
 

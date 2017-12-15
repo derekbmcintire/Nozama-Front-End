@@ -7,9 +7,8 @@ const cart = require('../templates/cart.handlebars')
 // const showCart = cart({ products: store.currentCart.currentProducts })
 
 const onShowCart = function () {
-  const data = store.products
-  console.log('store.products is ', data)
-  console.log('this is onShowCart')
+  const data = store.currentCart.currentProducts
+  console.log('this is data in onShowCart ', data)
   $('.cart-products').append(cart({ products: data }))
 }
 
