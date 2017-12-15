@@ -9,7 +9,9 @@ const onGetProductsSuccess = function (data) {
   store.products = data.products
   // console.log('store is ', store.products)
   const showProducts = showProductsHtml({ products: data.products })
-  // $('.content').html('')
+  // clears list before appending (so you don't have duplicates)
+  $('.show-products-content').html('')
+  // append content to div
   $('.show-products-content').append(showProducts)
   console.log('get success')
 }
