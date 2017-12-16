@@ -62,12 +62,44 @@
         <button id="show-shopping-cart">Cart</button>
       </div>
 
+
+
       <div class="shopping-cart">
+        <script src="https://checkout.stripe.com/checkout.js"></script>
         <h4>Your Cart</h4>
         <div class="cart-products">
         </div>
-
         <button id="submit-cart">Submit Order</button>
+
+        <script>
+        var handler = StripeCheckout.configure({
+          key: 'pk_test_OTB8FL8IFKn9v24Qi7h64eCz',
+          image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+          locale: 'auto',
+          token: function(token) {
+            console.log('token is ', token)
+            console.log('token id is ', token.id)
+            // You can access the token ID with `token.id`.
+            // Get the token ID to your server-side code for use.
+          }
+        });
+
+        document.getElementById('submit-cart').addEventListener('click', function(e) {
+          // Open Checkout with further options:
+          handler.open({
+            name: 'Demo Site',
+            description: '2 widgets',
+            amount: 2000
+          });
+          e.preventDefault();
+        });
+
+        // Close Checkout on page navigation:
+        window.addEventListener('popstate', function() {
+          handler.close();
+        });
+        </script>
+
         <button id="exit-cart">Exit Cart</button>
       </div>
 
