@@ -3,6 +3,19 @@
 const store = require('../store')
 const api = require('./api')
 const ui = require('./ui')
+const keyPublishable = process.env.PUBLISHABLE_KEY
+const keySecret = process.env.SECRET_KEY
+const stripe = require('stripe')(keySecret)
+
+const purchaseHandler = StripeCheckout.configure({
+  key: keyPublishable,
+  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+  locale: 'auto',
+  token: function (token) {
+    // You can access the token ID with `token.id`.
+    // Get the token ID to your server-side code for use.
+  }
+})
 
 const showCart = function () {
   $('.products-wrap').hide()
@@ -47,5 +60,6 @@ const addOrderHandlers = function () {
 }
 
 module.exports = {
-  addOrderHandlers
+  addOrderHandlers,
+  purchaseHandler
 }
