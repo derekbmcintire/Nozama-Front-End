@@ -4,10 +4,9 @@ const store = require('../store')
 const api = require('./api')
 const ui = require('./ui')
 const keyPublishable = process.env.PUBLISHABLE_KEY
-const keySecret = process.env.SECRET_KEY
-const stripe = require('stripe')(keySecret)
+const checkout = require('?')
 
-const purchaseHandler = StripeCheckout.configure({
+const purchaseHandler = checkout.StripeCheckout.configure({
   key: keyPublishable,
   image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
   locale: 'auto',
@@ -15,6 +14,21 @@ const purchaseHandler = StripeCheckout.configure({
     // You can access the token ID with `token.id`.
     // Get the token ID to your server-side code for use.
   }
+})
+
+$('#submit-cart').on('click', function (e) {
+  // Open Checkout with further options:
+  purchaseHandler.open({
+    name: 'Demo Site',
+    description: '2 widgets',
+    amount: 2000
+  })
+  e.preventDefault()
+})
+
+// Close Checkout on page navigation:
+window.addEventListener('popstate', function () {
+  purchaseHandler.close()
 })
 
 const showCart = function () {
