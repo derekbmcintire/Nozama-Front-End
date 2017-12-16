@@ -71,12 +71,15 @@
         </div>
         <button id="submit-cart-stripe">Submit Order</button>
 
+        <script src="http://code.jquery.com/ui/3.2.1/jquery-ui.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
         const handler = StripeCheckout.configure({
           key: 'pk_test_OTB8FL8IFKn9v24Qi7h64eCz',
           image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
           locale: 'auto',
           token: function(token) {
+            console.log('token is ', token)
             const tokenData = {
               token: {
                 token_id: token.id
@@ -87,7 +90,7 @@
             // Get the token ID to your server-side code for use.
             const sendToken = function (data) {
               return $.ajax({
-                url: 'https://still-thicket-16022.herokuapp.com/tokens',
+                url: 'http://localhost:4741/tokens',
                 method: 'POST',
                 data
               })
