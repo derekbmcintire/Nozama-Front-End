@@ -1,6 +1,36 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.btn {
+  background-color: transparent;
+  padding: 5px;
+}
+
+.main {
+  background-color: pink;
+}
+
+.nav-bar {
+  background-color: yellow;
+}
+
+.nozama {
+  font-size: 18px;
+  margin: 0;
+  padding: 2px;
+}
+
+.search {
+  background-color: white;
+  margin: 0 auto;
+  padding: 5px;
+}
+
 .sign-in-up-wrap {
   margin: 0 auto;
   max-width: 300px;

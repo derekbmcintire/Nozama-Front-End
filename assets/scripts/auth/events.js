@@ -29,11 +29,18 @@ const onSignOut = function () {
     .catch(ui.signOutFailure)
 }
 
+const showSignUp = function () {
+  $('.main').hide()
+  $('.sign-in-up-wrap').show()
+}
+
 // click handlers
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('click', onSignOut)
+  $('#show-sign-up').on('click', showSignUp)
+  $('#show-sign-in').on('click', showSignUp)
 }
 
 module.exports = {addHandlers}

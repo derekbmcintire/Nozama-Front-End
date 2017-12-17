@@ -11,15 +11,12 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
+    <body>
+<!-- ********************************************************************* -->
 
-
-
-    <!-- sign up/in -->
+    <!-- ***********sign up/in*************** -->
     <div class="row sign-in-up-wrap">
-
-      <h5 id="sign-message">message</h5>
-
+      <h5 id="sign-message"></h5>
     <div id="sign-in-wrap">
       <!-- sign in form -->
       <form id="sign-in">
@@ -46,30 +43,37 @@
     </form>
       <!-- <p>Already have an account? <button class="bike-btn" id="switch-to-sign-in">Sign in</button></p> -->
     </div>
-
     </div>
 
+    <!-- ********************* main ********************************** -->
 
     <main class="main">
+      <div class="search">
+        <h1 class="nozama">Nozama</h1>
+        </div>
+        <nav class="nav-bar">
+          <button class="btn btn-dark" id="show-sign-in">Sign In</button>
+          <button class="btn btn-dark" id="show-sign-up">Sign Up</button>
+          <button class="btn btn-dark" id="sign-out">Sign Out</button>
+          <button class="btn btn-dark" id="show-shopping-cart">Cart</button>
+          </nav>
       <!-- sign out button -->
-      <button class="btn btn-dark" id="sign-out">Sign Out</button>
       <div class='products-wrap'>
         <h4 id="main-message">HI!</h4>
-        <button class="dummy-button-get">Get Products</button>
+        <button class="btn dummy-button-get">Get Products</button>
           </br>
           <div class="show-products-content">
           </div>
-        <button id="show-shopping-cart">Cart</button>
       </div>
 
-
+      <!-- ****************** shopping cart *************************** -->
 
       <div class="shopping-cart">
         <script src="https://checkout.stripe.com/checkout.js"></script>
         <h4>Your Cart</h4>
         <div class="cart-products">
         </div>
-        <button id="submit-cart-stripe">Submit Order</button>
+        <button class="btn" id="submit-cart-stripe">Submit Order</button>
 
         <!-- <script src="http://code.jquery.com/ui/3.2.1/jquery-ui.js"></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -90,7 +94,7 @@
             // Get the token ID to your server-side code for use.
             const sendToken = function (data) {
               return $.ajax({
-                url: 'https://still-thicket-16022.herokuapp.com/tokens',
+                url: 'localhost://4741/tokens',
                 method: 'POST',
                 data
               })
@@ -115,7 +119,7 @@
         })
         </script>
 
-        <button id="exit-cart">Exit Cart</button>
+        <button class="btn" id="exit-cart">Exit Cart</button>
       </div>
 
     </main>
