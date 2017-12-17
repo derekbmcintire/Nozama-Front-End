@@ -34,6 +34,20 @@ const showSignUp = function () {
   $('.sign-in-up-wrap').show()
 }
 
+const onChangePassword = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.changePassword(data)
+    .then(ui.changeSuccess)
+    .catch(ui.changeFailure)
+  $('#change-password').children('input').val('')
+}
+
+const showChangePassword = function () {
+  $('.main').hide()
+  $('#change-password-wrap').show()
+}
+
 // click handlers
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
@@ -41,6 +55,8 @@ const addHandlers = function () {
   $('#sign-out').on('click', onSignOut)
   $('#show-sign-up').on('click', showSignUp)
   $('#show-sign-in').on('click', showSignUp)
+  $('#show-change-password').on('click', showChangePassword)
+  $('#change-password').on('submit', onChangePassword)
 }
 
 module.exports = {addHandlers}

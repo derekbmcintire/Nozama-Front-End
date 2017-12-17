@@ -13,6 +13,7 @@ $(() => {
   orderEvents.addOrderHandlers()
   $('.sign-in-up-wrap').hide()
   $('.shopping-cart').hide()
+  $('#change-password-wrap').hide()
 })
 
 // use require with a reference to bundle the file and use it in this file
