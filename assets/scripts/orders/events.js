@@ -5,13 +5,15 @@ const api = require('./api')
 const ui = require('./ui')
 const $script = require('scriptjs')
 
-$script('https://checkout.stripe.com/checkout.js', function () {
+const checkout = function () {
   const handler = StripeCheckout.configure({
     key: 'pk_test_OTB8FL8IFKn9v24Qi7h64eCz',
     image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
     locale: 'auto',
     token: function (token) {
-      console.log('token is ', token)
+      if (token) {
+        onSubmitCart()
+      }
       const tokenData = {
         token: {
           token_id: token.id
@@ -21,7 +23,7 @@ $script('https://checkout.stripe.com/checkout.js', function () {
       // Get the token ID to your server-side code for use.
       const sendToken = function (data) {
         return $.ajax({
-          url: 'https://still-thicket-16022.herokuapp.com/tokens',
+          url: 'localhost:4741/tokens',
           method: 'POST',
           data
         })
@@ -42,7 +44,9 @@ $script('https://checkout.stripe.com/checkout.js', function () {
   window.addEventListener('popstate', function () {
     handler.close()
   })
-})
+}
+
+$script('https://checkout.stripe.com/checkout.js', checkout)
 
 const showCart = function () {
   $('.products-wrap').hide()
