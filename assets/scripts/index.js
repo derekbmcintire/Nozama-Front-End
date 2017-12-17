@@ -11,7 +11,7 @@ $(() => {
   authEvents.addHandlers()
   productsEvents.addProductHandlers()
   orderEvents.addOrderHandlers()
-  $('.main').hide()
+  $('.sign-in-up-wrap').hide()
   $('.shopping-cart').hide()
 })
 
