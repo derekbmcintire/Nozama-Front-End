@@ -22,6 +22,9 @@ const signInSuccess = function (data) {
   $('#sign-message').text('You have signed in successfully')
   $('.main').show()
   $('.sign-in-up-wrap').hide()
+  $('#sign-out').show()
+  $('#show-shopping-cart').show()
+  $('#show-change-password').show()
   // reminder from brian { add html classes to clear forms }
 }
 
