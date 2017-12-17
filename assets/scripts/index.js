@@ -14,6 +14,9 @@ $(() => {
   $('.sign-in-up-wrap').hide()
   $('.shopping-cart').hide()
   $('#change-password-wrap').hide()
+  $('#sign-out').hide()
+  $('#show-shopping-cart').hide()
+  $('#show-change-password').hide()
 })
 
 // use require with a reference to bundle the file and use it in this file
