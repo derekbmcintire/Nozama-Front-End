@@ -47,11 +47,23 @@ const signOutFailure = function () {
   $('#sign-message').text('Error signing out')
 }
 
+const changeSuccess = function () {
+  console.log('Password Changed')
+  $('#change-password-wrap').hide()
+  $('.main').show()
+}
+
+const changeFailure = function () {
+  console.log('Password Change Failed')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  changeSuccess,
+  changeFailure
 }
