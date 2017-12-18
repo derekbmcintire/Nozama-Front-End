@@ -3,6 +3,7 @@ const store = require('../store')
 
 const config = require('../config')
 
+// ajax request for products index (displayed in hbs)
 const getProducts = function () {
   return $.ajax({
     url: config.apiOrigin + '/products',

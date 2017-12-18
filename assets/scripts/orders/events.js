@@ -5,6 +5,8 @@ const api = require('./api')
 const ui = require('./ui')
 const $script = require('scriptjs')
 
+// stripe script that adds modal to html and allows for ajax request
+// to get a users token to be stored for their order
 const checkout = function () {
   const handler = StripeCheckout.configure({
     key: 'pk_test_OTB8FL8IFKn9v24Qi7h64eCz',
@@ -48,18 +50,21 @@ const checkout = function () {
 
 $script('https://checkout.stripe.com/checkout.js', checkout)
 
+// show cart (hbs template) and hide products
 const showCart = function () {
   $('.products-wrap').hide()
   $('.shopping-cart').show()
   ui.onShowCart()
 }
 
+// show products and hide users cart
 const hideCart = function () {
   $('.shopping-cart').hide()
   $('.products-wrap').show()
   $('.cart-products').html('')
 }
 
+// submit cart items data to store.js
 const onSubmitCart = function () {
   const productArray = store.currentCart.currentProducts
   productArray.forEach((product) => {
@@ -73,6 +78,7 @@ const onSubmitCart = function () {
     .catch(ui.submitOrderFailure)
 }
 
+// remove product from users cart
 const onRemoveProduct = function () {
   const productId = $(event.target).parent().data('id')
   const productArray = store.currentCart.currentProducts

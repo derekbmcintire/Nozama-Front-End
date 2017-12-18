@@ -12,6 +12,7 @@ const onGetProducts = function () {
     .catch(ui.onGetProductsFailure)
 }
 
+// add product to users cart callback
 const onAddProduct = function () {
   const currentId = $(event.target).parent().parent().data('id')
   const item = store.products.filter((product) => product.id === currentId)

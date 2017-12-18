@@ -2,7 +2,6 @@
 
 const store = require('../store')
 const api = require('./api')
-const showProductsHtml = require('../templates/show-products.hbs')
 
 const deleteSuccess = function (event) {
   console.log('Product Deleted')
@@ -84,12 +83,14 @@ const getOrderProductFailure = function () {
 module.exports = {
   onGetProductsSuccess,
   onGetProductsFailure,
+
   updateSuccess,
   populateUpdateFields,
   deleteSuccess,
   deleteFailure,
   createSuccess,
   createFailure,
+
   getOrderProductSuccess,
   getOrderProductFailure
 }
