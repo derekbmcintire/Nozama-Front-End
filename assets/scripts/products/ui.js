@@ -53,11 +53,20 @@ const onGetProductsSuccess = function (data) {
   $('.show-products-content').html('')
   // append content to div
   $('.show-products-content').append(showProducts)
+  $('.admin').hide()
 }
 
 // Get products index show failure message + error
 const onGetProductsFailure = function (error) {
   console.log('get failure')
+  console.log(error)
+}
+
+const createSuccess = function () {
+  console.log('Product Created')
+}
+
+const createFailure = function (error) {
   console.log(error)
 }
 
@@ -67,5 +76,7 @@ module.exports = {
   updateSuccess,
   populateUpdateFields,
   deleteSuccess,
-  deleteFailure
+  deleteFailure,
+  createSuccess,
+  createFailure
 }

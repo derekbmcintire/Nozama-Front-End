@@ -6,10 +6,7 @@ const config = require('../config')
 const getProducts = function () {
   return $.ajax({
     url: config.apiOrigin + '/products',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
+    method: 'GET'
   })
 }
 
@@ -34,6 +31,17 @@ const updateProduct = function (data) {
   })
 }
 
+const createProduct = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/products',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const findProduct = function (id) {
   return $.ajax({
     url: config.apiOrigin + '/products/' + id,
@@ -48,5 +56,6 @@ module.exports = {
   getProducts,
   deleteProduct,
   updateProduct,
-  findProduct
+  findProduct,
+  createProduct
 }

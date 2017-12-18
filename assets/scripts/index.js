@@ -11,6 +11,7 @@ $(() => {
   authEvents.addHandlers()
   productsEvents.addProductHandlers()
   orderEvents.addOrderHandlers()
+  productsEvents.onGetProducts()
   $('.sign-in-up-wrap').hide()
   $('.shopping-cart').hide()
   $('#change-password-wrap').hide()
@@ -18,6 +19,7 @@ $(() => {
   $('#show-shopping-cart').hide()
   $('#show-change-password').hide()
   $('#update-product').hide()
+  $('.admin').hide()
 })
 
 // use require with a reference to bundle the file and use it in this file
