@@ -5,15 +5,18 @@ const orders = require('../templates/orders.hbs')
 const cart = require('../templates/cart.hbs')
 const prodEvents = require('../products/events.js')
 
+// show users stored products
 const onShowCart = function () {
   const data = store.currentCart.currentProducts
   $('.cart-products').append(cart({ products: data }))
 }
 
+// success message to submit users stored data to orders
 const submitOrderSuccess = function () {
   console.log('Successfully posted an order!')
 }
 
+// failure message for submit order
 const submitOrderFailure = function () {
   console.log('Order not posted successfully')
 }

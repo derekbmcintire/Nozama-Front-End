@@ -29,11 +29,13 @@ const onSignOut = function () {
     .catch(ui.signOutFailure)
 }
 
+// show sign up and hide main content
 const showSignUp = function () {
   $('.main').hide()
   $('.sign-in-up-wrap').show()
 }
 
+// change password callback function
 const onChangePassword = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -43,6 +45,7 @@ const onChangePassword = function (event) {
   $('#change-password').children('input').val('')
 }
 
+// show change password hide main content
 const showChangePassword = function () {
   $('.main').hide()
   $('#change-password-wrap').show()

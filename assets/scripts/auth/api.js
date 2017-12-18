@@ -31,6 +31,7 @@ const signOut = function () {
   })
 }
 
+// change password ajax request
 const changePassword = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,

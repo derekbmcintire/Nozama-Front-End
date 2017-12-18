@@ -52,12 +52,14 @@ const signOutFailure = function () {
   $('#sign-message').text('Error signing out')
 }
 
+// display message on change password success
 const changeSuccess = function () {
   console.log('Password Changed')
   $('#change-password-wrap').hide()
   $('.main').show()
 }
 
+// display message on change password failure
 const changeFailure = function () {
   console.log('Password Change Failed')
 }

@@ -3,6 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
+// ajax call to create an order
 const submitOrder = function (data) {
   console.log('data in api is ', data)
   return $.ajax({
