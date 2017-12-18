@@ -78,7 +78,7 @@ const onGetOrderProducts = function (productArr) {
     .then((products) => {
       $('.order-wrap').append(showOrder({ order: store.myOrder, products: products }))
     })
-    .catch(console.error)
+    .catch(() => $('.sign-message').text('Error getting order'))
 }
 
 module.exports = {

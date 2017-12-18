@@ -30,7 +30,9 @@ const checkout = function () {
           data
         })
       }
-      sendToken(tokenData).then(console.log('great success!')).catch(console.error)
+      sendToken(tokenData)
+        .then(() => $('.sign-message').text('Payment Successful'))
+        .catch(() => $('.sign-message').text('Payment Failed'))
     }
   })
   document.getElementById('submit-cart-stripe').addEventListener('click', function (e) {
@@ -74,7 +76,6 @@ const onSubmitCart = function () {
       quantity: 1
     })
   })
-  console.log('onsubmitcart ', store.currentCart.cart)
   api.submitOrder(store.currentCart.cart)
     .then(ui.submitOrderSuccess)
     .catch(ui.submitOrderFailure)
