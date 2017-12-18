@@ -5,12 +5,43 @@ const api = require('./api')
 const showProductsHtml = require('../templates/show-products.hbs')
 
 const deleteSuccess = function (event) {
-  console.log('Event Deleted')
+  console.log('Product Deleted')
   $(event.target).parent().remove()
 }
 
 const deleteFailure = function () {
-  $('#feedback-message').text('Deletion Failed')
+  console.log('Deletion Failed')
+}
+
+const updateSuccess = function () {
+  $('#update-product').hide()
+  console.log('Update Complete')
+  api.getProducts()
+    .then(onGetProductsSuccess)
+    .catch(onGetProductsFailure)
+}
+
+// Filling update form fields
+const findSuccess = function (data) {
+  const product = data.product
+  console.log('Product retrieved')
+  $('#update-name').attr('value', product.name)
+  $('#update-description').attr('value', product.description)
+  $('#update-url').attr('value', product.url)
+  $('#update-stock').attr('value', product.stock)
+  $('#update-price').attr('value', product.price)
+  $('#update-product').show()
+}
+
+const findFailure = function () {
+  console.log('Product not found')
+}
+
+// retrieves product information and calls a function to populate fields
+const populateUpdateFields = function (id) {
+  api.findProduct(id)
+    .then(findSuccess)
+    .catch(findFailure)
 }
 
 // Get products index ui show data
@@ -22,14 +53,6 @@ const onGetProductsSuccess = function (data) {
   $('.show-products-content').html('')
   // append content to div
   $('.show-products-content').append(showProducts)
-  // add delete content handler
-  $('.remove').on('click', function (e) {
-    e.preventDefault()
-    api.deleteProduct($(e.target).parent().data('id'))
-      .then(deleteSuccess(e))
-      .catch(deleteFailure)
-  })
-  console.log('get success')
 }
 
 // Get products index show failure message + error
@@ -40,5 +63,9 @@ const onGetProductsFailure = function (error) {
 
 module.exports = {
   onGetProductsSuccess,
-  onGetProductsFailure
+  onGetProductsFailure,
+  updateSuccess,
+  populateUpdateFields,
+  deleteSuccess,
+  deleteFailure
 }
