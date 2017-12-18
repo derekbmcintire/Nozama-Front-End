@@ -24,7 +24,8 @@ const onGetProductsFailure = function (error) {
 
 const getOrderProductSuccess = function (product) {
   store.orderProducts.push(product)
-  console.log('product retrieved')
+  // console.log('product retrieved')
+  console.log(store.orderProducts)
 }
 
 const getOrderProductFailure = function () {
