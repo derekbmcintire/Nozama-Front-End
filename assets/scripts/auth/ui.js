@@ -17,13 +17,16 @@ const signUpFailure = function () {
 const signInSuccess = function (data) {
   store.user = data.user
   console.log(store.user)
-  $('#sign-message').text('You have signed in successfully')
+  $('.sign-message').text('You have signed in successfully')
   $('.main').show()
   $('.sign-in-up-wrap').hide()
   $('#sign-out').show()
   $('#show-shopping-cart').show()
   $('#show-change-password').show()
+  $('#show-past-orders').show()
   $('.form-control').val('')
+  $('#show-sign-in').hide()
+  $('#show-sign-up').hide()
   if (store.user.admin) {
     $('.admin').show()
   }
@@ -40,11 +43,17 @@ const signInFailure = function () {
 // hide main div and show sign-in/up form
 const signOutSuccess = function () {
   $('.sign-message').text('You have signed out successfully')
-  $('.main').hide()
-  $('.sign-in-up-wrap').show()
-  $('#show-shopping-cart').hide()
+  $('.main').show()
+  $('.products-wrap').show()
+  $('.orders-wrap').hide()
+  $('.shopping-cart').hide()
   $('#show-change-password').hide()
   $('.admin').hide()
+  $('#sign-out').hide()
+  $('#show-past-orders').hide()
+  $('#show-shopping-cart').hide()
+  $('#show-sign-in').show()
+  $('#show-sign-up').show()
   // reminder from brian { add html classes to clear forms }
 }
 
