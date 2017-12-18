@@ -11,6 +11,7 @@ const goHome = function () {
   $('.shopping-cart').hide()
   $('.order-wrap').html('')
   $('.orders-wrap').html('')
+  $('#change-password-wrap').hide()
   $('.products-wrap').show()
 }
 
