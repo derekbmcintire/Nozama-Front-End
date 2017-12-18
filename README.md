@@ -11,6 +11,10 @@ Back-End Repo:  https://github.com/Tbdwdi/Nozama-Back-End
 
 Technologies used: Express, Mongo, Mongoose, NodeJs, Javascript, Handlebars, Bootstrap, Sass
 
+What is Nozama?
+
+Nozama is an E-Commerce site created by Derek McIntire, Peter Samson and Brian Cameron.  Together, using express/mongo as a back end api (and stripe as a third party api for checkout), we have created a simple shopping site.  The user may browse the site to view the products but must sign in to access the sites functionality.  From there a user may add products to their cart and proceed to a checkout where they may submit their order.  From their the user must fill out the appropriate fields for their order to be processed through stripe.  Once the order has been confirmed their cart is stored and is ready to be processed into our database.  
+
 User Stories :
 
 
