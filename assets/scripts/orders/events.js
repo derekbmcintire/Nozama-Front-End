@@ -66,6 +66,7 @@ const showCart = function () {
 // show products and hide users cart
 const hideCart = function () {
   $('.shopping-cart').hide()
+  $('#update-product').hide()
   $('.products-wrap').show()
   $('.cart-products').html('')
 }
