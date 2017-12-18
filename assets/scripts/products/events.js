@@ -40,6 +40,20 @@ const onUpdateField = function (e) {
   ui.populateUpdateFields(store.id)
 }
 
+const onCreateEvent = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.createProduct(data)
+    .then(ui.createSuccess)
+    .then(() => {
+      api.getProducts()
+        .then(ui.onGetProductsSuccess)
+        .catch(ui.onGetProductsFailure)
+    })
+    .catch(ui.createFailure)
+  $('#create-product').children('input').val('')
+}
+
 const addProductHandlers = function () {
   $('.dummy-button-get').on('click', onGetProducts)
   // $('.dummy-button-get-single').on('.click', onGetSingleProduct)
@@ -47,6 +61,7 @@ const addProductHandlers = function () {
   $('.show-products-content').on('click', '.remove', onRemoveProduct)
   $('.show-products-content').on('click', '.update', onUpdateField)
   $('#update-product').on('submit', onUpdateProduct)
+  $('#create-product').on('submit', onCreateEvent)
   console.log('this happens')
 }
 

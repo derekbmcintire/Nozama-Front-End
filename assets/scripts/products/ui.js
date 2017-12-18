@@ -61,11 +61,21 @@ const onGetProductsFailure = function (error) {
   console.log(error)
 }
 
+const createSuccess = function () {
+  console.log('Product Created')
+}
+
+const createFailure = function (error) {
+  console.log(error)
+}
+
 module.exports = {
   onGetProductsSuccess,
   onGetProductsFailure,
   updateSuccess,
   populateUpdateFields,
   deleteSuccess,
-  deleteFailure
+  deleteFailure,
+  createSuccess,
+  createFailure
 }
