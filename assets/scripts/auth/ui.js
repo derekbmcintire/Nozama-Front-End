@@ -24,7 +24,7 @@ const signInSuccess = function (data) {
   $('#show-change-password').show()
   $('#show-past-orders').show()
   $('.form-control').val('')
-  $('#show-sign-in').hide()
+  $('#show-sign-in-up').hide()
   $('#show-sign-up').hide()
   $('.add-product-button').show()
   if (store.user.admin) {
@@ -45,6 +45,7 @@ const signOutSuccess = function () {
   $('.sign-message').text('You have signed out successfully')
   $('.main').show()
   $('.products-wrap').show()
+  $('.order-wrap').hide()
   $('.orders-wrap').hide()
   $('.shopping-cart').hide()
   $('#show-change-password').hide()
@@ -52,7 +53,7 @@ const signOutSuccess = function () {
   $('#sign-out').hide()
   $('#show-past-orders').hide()
   $('#show-shopping-cart').hide()
-  $('#show-sign-in').show()
+  $('#show-sign-in-up').show()
   $('#show-sign-up').show()
   $('.add-product-button').hide()
   store.currentCart = {

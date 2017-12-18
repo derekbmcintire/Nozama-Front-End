@@ -57,6 +57,8 @@ const showCart = function () {
   $('.cart-products').html('')
   $('.products-wrap').hide()
   $('.shopping-cart').show()
+  $('.order-wrap').html('')
+  $('.orders-wrap').html('')
   ui.onShowCart()
 }
 
