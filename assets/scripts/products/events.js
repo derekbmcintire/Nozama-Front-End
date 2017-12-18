@@ -63,6 +63,7 @@ const addProductHandlers = function () {
 // trying to loop through orders product id's and return each product in an array, then display each product in a template
 const onGetOrderProducts = function (productArr) {
   store.orderProducts = []
+
   const promiseProducts = function (productArr) {
     return new Promise((resolve, reject) => {
       productArr.forEach(id => {
@@ -74,17 +75,8 @@ const onGetOrderProducts = function (productArr) {
   }
 
   promiseProducts(productArr)
-    .then(() => {
-      store.myOrder.products = store.orderProducts
-      console.log('mah ordaz prods ', store.myOrder)
-    })
-    .then(() => {
-      console.log('mah orda ', store.myOrder)
-    })
+    .then(console.log)
     .catch(console.error)
-    .then(() => {
-      console.log('got to the end')
-    })
 }
 
 module.exports = {
