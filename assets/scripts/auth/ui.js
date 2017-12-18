@@ -16,6 +16,7 @@ const signUpFailure = function () {
 // display message on sign in success
 const signInSuccess = function (data) {
   store.user = data.user
+  console.log(store.user)
   $('#sign-message').text('You have signed in successfully')
   $('.main').show()
   $('.sign-in-up-wrap').hide()
@@ -23,6 +24,9 @@ const signInSuccess = function (data) {
   $('#show-shopping-cart').show()
   $('#show-change-password').show()
   $('.form-control').val('')
+  if (store.user.admin) {
+    $('.admin').show()
+  }
   // reminder from brian { add html classes to clear forms }
 }
 
