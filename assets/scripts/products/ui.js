@@ -1,7 +1,11 @@
 'use strict'
 
 const store = require('../store')
+<<<<<<< e069e4625df505528f2116ce7b01d04a73c20901
 const api = require('./api')
+=======
+const showOrderhbs = require('../templates/show-order.hbs')
+>>>>>>> Ignore this branch
 const showProductsHtml = require('../templates/show-products.hbs')
 
 const deleteSuccess = function (event) {
