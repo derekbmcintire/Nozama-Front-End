@@ -9,7 +9,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const onGetProducts = function () {
   api.getProducts()
     .then(ui.onGetProductsSuccess)
-    .catch(ui.onGetProductsFailure)
+    // .catch(ui.onGetProductsFailure)
 }
 
 // add product to users cart callback

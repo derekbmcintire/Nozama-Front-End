@@ -18,7 +18,7 @@ const updateSuccess = function () {
   $('.sign-message').text('Update Complete')
   api.getProducts()
     .then(onGetProductsSuccess)
-    .catch(onGetProductsFailure)
+    // .catch(onGetProductsFailure)
 }
 
 // Filling update form fields
@@ -63,9 +63,9 @@ const onGetProductsSuccess = function (data) {
 }
 
 // Get products index show failure message + error
-const onGetProductsFailure = function () {
-  $('.sign-message').text('get failure')
-}
+// const onGetProductsFailure = function () {
+//   // $('.sign-message').text('get failure')
+// }
 
 const createSuccess = function () {
   $('.sign-message').text('Product Created')
@@ -86,7 +86,7 @@ const getOrderProductFailure = function () {
 
 module.exports = {
   onGetProductsSuccess,
-  onGetProductsFailure,
+  // onGetProductsFailure,
   updateSuccess,
   populateUpdateFields,
   deleteSuccess,

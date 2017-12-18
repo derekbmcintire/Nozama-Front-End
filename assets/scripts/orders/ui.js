@@ -12,6 +12,7 @@ const onShowCart = function () {
     const total = data.map((item) => item.price).reduce((acc, price) => acc + price)
     store.currentCart.cart.order.total = total
     $('.cart-products').append(cart({ products: data, cartTotal: total }))
+    $('.order-wrap').html('')
   } else {
     $('.cart-products').append('You have no products in your cart')
   }
