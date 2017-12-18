@@ -8,8 +8,9 @@ const prodEvents = require('../products/events.js')
 // show users stored products
 const onShowCart = function () {
   const data = store.currentCart.currentProducts
-  store.cartTotal = data.map((item) => item.price).reduce((acc, price) => acc + price)
-  $('.cart-products').append(cart({ products: data, cartTotal: store.cartTotal }))
+  const total = data.map((item) => item.price).reduce((acc, price) => acc + price)
+  store.currentCart.cart.order.total = total
+  $('.cart-products').append(cart({ products: data, cartTotal: total }))
 }
 
 // success message to submit users stored data to orders
@@ -26,7 +27,7 @@ const showOrdersSuccess = function (data) {
   store.myOrders = data.orders.filter(order => {
     return order._owner === store.user.id
   })
-  console.log(store.myOrders[0].id)
+  console.log('these are my orders right now ', store.myOrders)
   $('.orders-wrap').append(orders({ orders: store.myOrders }))
 }
 

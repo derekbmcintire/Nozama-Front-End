@@ -38,7 +38,7 @@ const checkout = function () {
     handler.open({
       name: 'Demo Site',
       description: '2 widgets',
-      amount: (store.cartTotal * 100)
+      amount: (store.currentCart.cart.order.total * 100)
     })
     e.preventDefault()
   })
@@ -73,6 +73,7 @@ const onSubmitCart = function () {
       quantity: 1
     })
   })
+  console.log('onsubmitcart ', store.currentCart.cart)
   api.submitOrder(store.currentCart.cart)
     .then(ui.submitOrderSuccess)
     .catch(ui.submitOrderFailure)
@@ -90,6 +91,7 @@ const onRemoveProduct = function () {
 }
 
 const onShowOrders = function () {
+  $('.orders-wrap').html('')
   api.showOrders()
     .then(ui.showOrdersSuccess)
     .catch(ui.showOrdersFailure)
