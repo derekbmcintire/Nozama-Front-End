@@ -53,6 +53,7 @@ const onGetProductsSuccess = function (data) {
   $('.show-products-content').html('')
   // append content to div
   $('.show-products-content').append(showProducts)
+  $('.admin').hide()
 }
 
 // Get products index show failure message + error

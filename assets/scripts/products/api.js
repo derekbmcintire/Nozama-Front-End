@@ -6,10 +6,7 @@ const config = require('../config')
 const getProducts = function () {
   return $.ajax({
     url: config.apiOrigin + '/products',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
+    method: 'GET'
   })
 }
 

@@ -18,7 +18,6 @@ const signUpFailure = function () {
 const signInSuccess = function (data) {
   console.log('sign in success')
   store.user = data.user
-  console.log(store.data)
   $('#sign-message').text('You have signed in successfully')
   $('.main').show()
   $('.sign-in-up-wrap').hide()
@@ -41,6 +40,9 @@ const signOutSuccess = function () {
   $('#sign-message').text('You have signed out successfully')
   $('.main').hide()
   $('.sign-in-up-wrap').show()
+  $('#show-shopping-cart').hide()
+  $('#show-change-password').hide()
+  $('.admin').hide()
   // reminder from brian { add html classes to clear forms }
 }
 

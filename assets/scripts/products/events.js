@@ -5,8 +5,7 @@ const ui = require('./ui')
 const store = require('../store')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
-const onGetProducts = function (event) {
-  event.preventDefault()
+const onGetProducts = function () {
   api.getProducts()
     .then(ui.onGetProductsSuccess)
     .catch(ui.onGetProductsFailure)
@@ -45,17 +44,12 @@ const onCreateEvent = function (event) {
   event.preventDefault()
   api.createProduct(data)
     .then(ui.createSuccess)
-    .then(() => {
-      api.getProducts()
-        .then(ui.onGetProductsSuccess)
-        .catch(ui.onGetProductsFailure)
-    })
+    .then(onGetProducts)
     .catch(ui.createFailure)
   $('#create-product').children('input').val('')
 }
 
 const addProductHandlers = function () {
-  $('.dummy-button-get').on('click', onGetProducts)
   // $('.dummy-button-get-single').on('.click', onGetSingleProduct)
   $('.show-products-content').on('click', '.add-product-button', onAddProduct)
   $('.show-products-content').on('click', '.remove', onRemoveProduct)
