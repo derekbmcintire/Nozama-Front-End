@@ -19,7 +19,7 @@ const onShowCart = function () {
 
 // success message to submit users stored data to orders
 const submitOrderSuccess = function () {
-  console.log('Successfully posted an order!')
+  $('.sign-message').text('Successfully posted an order!')
   store.currentCart = {
     cart: {
       order: {
@@ -35,18 +35,22 @@ const submitOrderSuccess = function () {
 
 // failure message for submit order
 const submitOrderFailure = function () {
-  console.log('Order not posted successfully')
+  $('.sign-message').text('Order not posted successfully')
 }
 
 const showOrdersSuccess = function (data) {
   store.myOrders = data.orders.filter(order => {
     return order._owner === store.user.id
   })
-  $('.orders-wrap').append(orders({ orders: store.myOrders }))
+  if (store.myOrders.length > 0) {
+    $('.orders-wrap').append(orders({ orders: store.myOrders }))
+  } else {
+    $('.orders-wrap').append('<p>You have no orders</p>')
+  }
 }
 
 const showOrdersFailure = function () {
-  console.log('failed getting orders')
+  $('.sign-message').text('failed getting orders')
 }
 
 const getOrderSuccess = function (data) {
@@ -55,7 +59,7 @@ const getOrderSuccess = function (data) {
 }
 
 const getOrderFailure = function (data) {
-  console.log('get order failure')
+  $('.sign-message').text('get order failure')
 }
 
 const displayOrder = function (order) {

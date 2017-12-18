@@ -3,13 +3,13 @@ const store = require('../store')
 
 // display message on sign up success
 const signUpSuccess = function (data) {
-  $('#sign-message').text('You signed-up successfully!')
+  $('.sign-message').text('You signed-up successfully!')
   $('.form-control').val('')
 }
 
 // display message on sign up failure
 const signUpFailure = function () {
-  $('#sign-message').text('Please enter a valid email address and matching passwords')
+  $('.sign-message').text('Please enter a valid email address and matching passwords')
   $('.form-control').val('')
 }
 
