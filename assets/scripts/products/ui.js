@@ -54,6 +54,9 @@ const onGetProductsSuccess = function (data) {
   // append content to div
   $('.show-products-content').append(showProducts)
   $('.admin').hide()
+  if (store.user.admin) {
+    $('.admin').show()
+  }
 }
 
 // Get products index show failure message + error
@@ -61,7 +64,6 @@ const onGetProductsFailure = function (error) {
   console.log('get failure')
   console.log(error)
 }
-
 
 const createSuccess = function () {
   console.log('Product Created')
@@ -84,14 +86,12 @@ const getOrderProductFailure = function () {
 module.exports = {
   onGetProductsSuccess,
   onGetProductsFailure,
-
   updateSuccess,
   populateUpdateFields,
   deleteSuccess,
   deleteFailure,
   createSuccess,
   createFailure,
-
   getOrderProductSuccess,
   getOrderProductFailure
 }
