@@ -104,12 +104,12 @@ const onShowOrders = function () {
   $('.orders-wrap').show()
 }
 
-const onGetOrder = function (event) {
-  const id = $(event.target).parent().parent().parent().data('id')
-  api.getOrder(id)
-    .then(ui.getOrderSuccess)
-    .catch(ui.getOrderFailure)
-}
+// const onGetOrder = function (event) {
+//   const id = $(event.target).parent().parent().parent().data('id')
+//   api.getOrder(id)
+//     .then(ui.getOrderSuccess)
+//     .catch(ui.getOrderFailure)
+// }
 
 const addOrderHandlers = function () {
   $('#show-shopping-cart').on('click', showCart)
@@ -117,7 +117,7 @@ const addOrderHandlers = function () {
   $('#submit-cart').on('click', onSubmitCart)
   $('.cart-products').on('click', '.remove-product', onRemoveProduct)
   $('#show-past-orders').on('click', onShowOrders)
-  $('.orders-wrap').on('click', '.get-order', onGetOrder)
+  // $('.orders-wrap').on('click', '.get-order', onGetOrder)
 }
 
 module.exports = {

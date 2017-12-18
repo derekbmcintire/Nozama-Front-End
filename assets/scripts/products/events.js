@@ -6,6 +6,14 @@ const store = require('../store')
 const showOrder = require('../templates/single-order.hbs')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
+const goHome = function () {
+  $('#update-product').hide()
+  $('.shopping-cart').hide()
+  $('.order-wrap').html('')
+  $('.orders-wrap').html('')
+  $('.products-wrap').show()
+}
+
 const onGetProducts = function () {
   api.getProducts()
     .then(ui.onGetProductsSuccess)
@@ -57,6 +65,7 @@ const addProductHandlers = function () {
   $('.show-products-content').on('click', '.update', onUpdateField)
   $('#update-product').on('submit', onUpdateProduct)
   $('#create-product').on('submit', onCreateEvent)
+  $('#home').on('click', goHome)
 }
 
 // trying to loop through orders product id's and return each product in an array, then display each product in a template
