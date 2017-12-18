@@ -79,7 +79,7 @@ const signOutFailure = function () {
 const changeSuccess = function () {
   $('.sign-message').text('You have changed password successfully')
   $('#change-password-wrap').hide()
-  $('.main').show()
+  $('.products-wrap').show()
   $('.form-control').val('')
 }
 

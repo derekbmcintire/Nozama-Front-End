@@ -56,6 +56,7 @@ $script('https://checkout.stripe.com/checkout.js', checkout)
 const showCart = function () {
   $('.cart-products').html('')
   $('.products-wrap').hide()
+  $('#change-password-wrap').hide()
   $('.shopping-cart').show()
   $('.order-wrap').html('')
   $('.orders-wrap').html('')
@@ -101,6 +102,7 @@ const onShowOrders = function () {
     .catch(ui.showOrdersFailure)
   $('.products-wrap').hide()
   $('.shopping-cart').hide()
+  $('#change-password-wrap').hide()
   $('.orders-wrap').show()
 }
 

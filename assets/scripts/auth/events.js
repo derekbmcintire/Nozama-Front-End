@@ -47,7 +47,11 @@ const onChangePassword = function (event) {
 
 // show change password hide main content
 const showChangePassword = function () {
-  $('.main').hide()
+  $('#update-product').hide()
+  $('.shopping-cart').hide()
+  $('.order-wrap').html('')
+  $('.orders-wrap').html('')
+  $('.products-wrap').hide()
   $('#change-password-wrap').show()
 }
 
