@@ -71,7 +71,7 @@ const createFailure = function (error) {
   console.log(error)
 
 const getOrderProductSuccess = function (product) {
-  store.myOrder.orderProducts.push(product)
+  store.myOrder.orderProducts.push(product.product)
   // console.log('product retrieved')
   return store.myOrder.orderProducts
 }

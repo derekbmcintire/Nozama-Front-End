@@ -3,7 +3,6 @@
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
-
 const showOrder = require('../templates/single-order.hbs')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
@@ -66,21 +65,21 @@ const onGetOrderProducts = function (productArr) {
   store.myOrder.orderProducts = []
 
   const promiseProducts = function (productArr) {
-    return new Promise((resolve, reject) => {
-      productArr.forEach(id => {
-        api.getOrderProduct(id)
-          .then(ui.getOrderProductSuccess)
-          .catch(ui.getOrderProductFailure)
+    productArr = productArr.map(id => {
+      return new Promise((resolve, reject) => {
+        api.findProduct(id)
+          .then(resolve)
+          .catch(reject)
       })
-      // console.log('afterpromise ', store.orderProducts)
-      resolve(store.myOrder.orderProducts)
     })
+    // console.log('afterpromise ', store.orderProducts)
+    return Promise.all(productArr)
   }
 
   promiseProducts(productArr)
     .then((products) => {
-      console.log('my order ', store.myOrder)
-      $('.order-wrap').append(showOrder({ order: store.myOrder, products: store.myOrder.orderProducts }))
+      console.log('my order product', products[0].product.name)
+      $('.order-wrap').append(showOrder({ order: store.myOrder, products: products }))
     })
     .catch(console.error)
 }
