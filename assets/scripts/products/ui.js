@@ -84,12 +84,14 @@ const getOrderProductFailure = function () {
 module.exports = {
   onGetProductsSuccess,
   onGetProductsFailure,
+
   updateSuccess,
   populateUpdateFields,
   deleteSuccess,
   deleteFailure,
   createSuccess,
   createFailure,
+
   getOrderProductSuccess,
   getOrderProductFailure
 }
