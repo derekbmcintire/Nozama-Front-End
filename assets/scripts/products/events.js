@@ -3,8 +3,8 @@
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
-const showOrder = require('../templates/single-order.hbs')
 
+const showOrder = require('../templates/single-order.hbs')
 const onGetProducts = function (event) {
   event.preventDefault()
   api.getProducts()
