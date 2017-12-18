@@ -13,6 +13,16 @@ const getProducts = function () {
   })
 }
 
+const deleteProduct = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/products/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 // const getSingleProduct = function () {
 //   return $.ajax({
 //     url: config.apiOrigin + '/products',
@@ -24,5 +34,6 @@ const getProducts = function () {
 // }
 
 module.exports = {
-  getProducts
+  getProducts,
+  deleteProduct
 }

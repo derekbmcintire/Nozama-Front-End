@@ -1,8 +1,17 @@
 'use strict'
 
 const store = require('../store')
-
+const api = require('./api')
 const showProductsHtml = require('../templates/show-products.hbs')
+
+const deleteSuccess = function (event) {
+  console.log('Event Deleted')
+  $(event.target).parent().remove()
+}
+
+const deleteFailure = function () {
+  $('#feedback-message').text('Deletion Failed')
+}
 
 // Get products index ui show data
 const onGetProductsSuccess = function (data) {
@@ -13,6 +22,13 @@ const onGetProductsSuccess = function (data) {
   $('.show-products-content').html('')
   // append content to div
   $('.show-products-content').append(showProducts)
+  // add delete content handler
+  $('.remove').on('click', function (e) {
+    e.preventDefault()
+    api.deleteProduct($(e.target).parent().data('id'))
+      .then(deleteSuccess(e))
+      .catch(deleteFailure)
+  })
   console.log('get success')
 }
 
