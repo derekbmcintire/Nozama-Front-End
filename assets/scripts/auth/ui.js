@@ -16,7 +16,6 @@ const signUpFailure = function () {
 // display message on sign in success
 const signInSuccess = function (data) {
   store.user = data.user
-  console.log(store.user)
   $('.sign-message').text('You have signed in successfully')
   $('.main').show()
   $('.sign-in-up-wrap').hide()
@@ -27,6 +26,7 @@ const signInSuccess = function (data) {
   $('.form-control').val('')
   $('#show-sign-in').hide()
   $('#show-sign-up').hide()
+  $('.add-product-button').show()
   if (store.user.admin) {
     $('.admin').show()
   }
@@ -54,6 +54,18 @@ const signOutSuccess = function () {
   $('#show-shopping-cart').hide()
   $('#show-sign-in').show()
   $('#show-sign-up').show()
+  $('.add-product-button').hide()
+  store.currentCart = {
+    cart: {
+      order: {
+        products: [],
+        total: 0
+      }
+    },
+    currentProducts: []
+  }
+  store.myOrders = []
+  store.productIdArr = []
   // reminder from brian { add html classes to clear forms }
 }
 

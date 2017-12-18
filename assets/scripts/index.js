@@ -22,6 +22,7 @@ $(() => {
   $('#update-product').hide()
   $('.admin').hide()
   $('.orders-wrap').show()
+  $('.add-product-button').hide()
 })
 
 // use require with a reference to bundle the file and use it in this file

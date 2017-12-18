@@ -52,6 +52,7 @@ $script('https://checkout.stripe.com/checkout.js', checkout)
 
 // show cart (hbs template) and hide products
 const showCart = function () {
+  $('.cart-products').html('')
   $('.products-wrap').hide()
   $('.shopping-cart').show()
   ui.onShowCart()

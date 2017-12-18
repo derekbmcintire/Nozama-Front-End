@@ -54,6 +54,7 @@ const onGetProductsSuccess = function (data) {
   // append content to div
   $('.show-products-content').append(showProducts)
   $('.admin').hide()
+  $('.add-product-button').hide()
   if (store.user.admin) {
     $('.admin').show()
   } else {
@@ -64,7 +65,6 @@ const onGetProductsSuccess = function (data) {
 // Get products index show failure message + error
 const onGetProductsFailure = function (error) {
   console.log('get failure')
-  console.log(error)
 }
 
 const createSuccess = function () {
@@ -77,7 +77,6 @@ const createFailure = function (error) {
 
 const getOrderProductSuccess = function (product) {
   store.myOrder.orderProducts.push(product.product)
-  // console.log('product retrieved')
   return store.myOrder.orderProducts
 }
 
