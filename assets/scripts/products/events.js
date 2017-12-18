@@ -28,7 +28,7 @@ const addProductHandlers = function () {
 
 // trying to loop through orders product id's and return each product in an array, then display each product in a template
 const onGetOrderProducts = function (productArr) {
-  store.orderProducts = []
+  store.myOrder.orderProducts = []
 
   const promiseProducts = function (productArr) {
     return new Promise((resolve, reject) => {
@@ -37,11 +37,16 @@ const onGetOrderProducts = function (productArr) {
           .then(ui.getOrderProductSuccess)
           .catch(ui.getOrderProductFailure)
       })
+      // console.log('afterpromise ', store.orderProducts)
+      resolve(store.myOrder.orderProducts)
     })
   }
 
   promiseProducts(productArr)
-    .then(console.log)
+    .then((products) => {
+      console.log('my order ', store.myOrder)
+      $('.order-wrap').append(showOrder({ order: store.myOrder, products: store.myOrder.orderProducts }))
+    })
     .catch(console.error)
 }
 
