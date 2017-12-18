@@ -83,11 +83,29 @@ const onRemoveProduct = function () {
   showCart()
 }
 
+const onShowOrders = function () {
+  api.showOrders()
+    .then(ui.showOrdersSuccess)
+    .catch(ui.showOrdersFailure)
+  $('.products-wrap').hide()
+  $('.shopping-cart').hide()
+  $('.orders-wrap').show()
+}
+
+const onGetOrder = function (event) {
+  const id = $(event.target).parent().parent().parent().data('id')
+  api.getOrder(id)
+    .then(ui.getOrderSuccess)
+    .catch(ui.getOrderFailure)
+}
+
 const addOrderHandlers = function () {
   $('#show-shopping-cart').on('click', showCart)
   $('#exit-cart').on('click', hideCart)
   $('#submit-cart').on('click', onSubmitCart)
   $('.cart-products').on('click', '.remove-product', onRemoveProduct)
+  $('#show-past-orders').on('click', onShowOrders)
+  $('.orders-wrap').on('click', '.get-order', onGetOrder)
 }
 
 module.exports = {

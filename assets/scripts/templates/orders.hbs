@@ -1,0 +1,11 @@
+{{#each orders as |order|}}
+
+<div class="order-display" data-id="{{order.id}}">
+  <ul>
+    <li><button class="btn btn-dark get-order">Date: {{order.createdAt}}</button></li>
+    <li>Total: ${{order.total}}</li>
+    {{!-- <li>Number of items: {{}}</li> --}}
+  </ul>
+</div>
+
+{{/each}}

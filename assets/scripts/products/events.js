@@ -3,7 +3,8 @@
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
-const getFormFields = require(`../../../lib/get-form-fields`)
+const showOrder = require('../templates/single-order.hbs')
+const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onGetProducts = function () {
   api.getProducts()
@@ -59,8 +60,33 @@ const addProductHandlers = function () {
   console.log('this happens')
 }
 
+// trying to loop through orders product id's and return each product in an array, then display each product in a template
+const onGetOrderProducts = function (productArr) {
+  store.myOrder.orderProducts = []
+
+  const promiseProducts = function (productArr) {
+    productArr = productArr.map(id => {
+      return new Promise((resolve, reject) => {
+        api.findProduct(id)
+          .then(resolve)
+          .catch(reject)
+      })
+    })
+    // console.log('afterpromise ', store.orderProducts)
+    return Promise.all(productArr)
+  }
+
+  promiseProducts(productArr)
+    .then((products) => {
+      console.log('my order product', products[0].product.name)
+      $('.order-wrap').append(showOrder({ order: store.myOrder, products: products }))
+    })
+    .catch(console.error)
+}
+
 module.exports = {
   onGetProducts,
   // onGetSingleProduct,
-  addProductHandlers
+  addProductHandlers,
+  onGetOrderProducts
 }

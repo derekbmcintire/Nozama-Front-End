@@ -62,12 +62,23 @@ const onGetProductsFailure = function (error) {
   console.log(error)
 }
 
+
 const createSuccess = function () {
   console.log('Product Created')
 }
 
 const createFailure = function (error) {
   console.log(error)
+}
+
+const getOrderProductSuccess = function (product) {
+  store.myOrder.orderProducts.push(product.product)
+  // console.log('product retrieved')
+  return store.myOrder.orderProducts
+}
+
+const getOrderProductFailure = function () {
+  console.log('failed to get product')
 }
 
 module.exports = {
@@ -78,5 +89,7 @@ module.exports = {
   deleteSuccess,
   deleteFailure,
   createSuccess,
-  createFailure
+  createFailure,
+  getOrderProductSuccess,
+  getOrderProductFailure
 }
