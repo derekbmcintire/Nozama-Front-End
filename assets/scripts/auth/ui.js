@@ -3,20 +3,18 @@ const store = require('../store')
 
 // display message on sign up success
 const signUpSuccess = function (data) {
-  console.log(data)
-  console.log('sign up success')
   $('#sign-message').text('You signed-up successfully!')
+  $('.form-control').val('')
 }
 
 // display message on sign up failure
 const signUpFailure = function () {
-  console.log('sign up fail')
   $('#sign-message').text('Please enter a valid email address and matching passwords')
+  $('.form-control').val('')
 }
 
 // display message on sign in success
 const signInSuccess = function (data) {
-  console.log('sign in success')
   store.user = data.user
   $('#sign-message').text('You have signed in successfully')
   $('.main').show()
@@ -24,20 +22,20 @@ const signInSuccess = function (data) {
   $('#sign-out').show()
   $('#show-shopping-cart').show()
   $('#show-change-password').show()
+  $('.form-control').val('')
   // reminder from brian { add html classes to clear forms }
 }
 
 // display message on sign in failure
 const signInFailure = function () {
-  console.log('sign in fail')
-  $('#sign-message').text('Error on sign in')
+  $('.sign-message').text('Error on sign in')
+  $('.form-control').val('')
 }
 
 // display message on sign out success
 // hide main div and show sign-in/up form
 const signOutSuccess = function () {
-  console.log('sign out success')
-  $('#sign-message').text('You have signed out successfully')
+  $('.sign-message').text('You have signed out successfully')
   $('.main').hide()
   $('.sign-in-up-wrap').show()
   $('#show-shopping-cart').hide()
@@ -48,20 +46,21 @@ const signOutSuccess = function () {
 
 // display message on sign out failure
 const signOutFailure = function () {
-  console.log('sign out fail')
-  $('#sign-message').text('Error signing out')
+  $('.sign-message').text('Error signing out')
 }
 
 // display message on change password success
 const changeSuccess = function () {
-  console.log('Password Changed')
+  $('.sign-message').text('You have changed password successfully')
   $('#change-password-wrap').hide()
   $('.main').show()
+  $('.form-control').val('')
 }
 
 // display message on change password failure
 const changeFailure = function () {
-  console.log('Password Change Failed')
+  $('.sign-message').text('Error changing password')
+  $('.form-control').val('')
 }
 
 module.exports = {
