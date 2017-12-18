@@ -17,7 +17,6 @@ const onAddProduct = function () {
   const currentId = $(event.target).parent().parent().data('id')
   const item = store.products.filter((product) => product.id === currentId)
   store.currentCart.currentProducts.push(item[0])
-  console.log('current products are ', store.currentCart.currentProducts)
 }
 
 const onUpdateProduct = function (event) {
@@ -58,7 +57,6 @@ const addProductHandlers = function () {
   $('.show-products-content').on('click', '.update', onUpdateField)
   $('#update-product').on('submit', onUpdateProduct)
   $('#create-product').on('submit', onCreateEvent)
-  console.log('this happens')
 }
 
 // trying to loop through orders product id's and return each product in an array, then display each product in a template
@@ -73,13 +71,11 @@ const onGetOrderProducts = function (productArr) {
           .catch(reject)
       })
     })
-    // console.log('afterpromise ', store.orderProducts)
     return Promise.all(productArr)
   }
 
   promiseProducts(productArr)
     .then((products) => {
-      console.log('my order product', products[0].product.name)
       $('.order-wrap').append(showOrder({ order: store.myOrder, products: products }))
     })
     .catch(console.error)

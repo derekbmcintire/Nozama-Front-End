@@ -8,14 +8,29 @@ const prodEvents = require('../products/events.js')
 // show users stored products
 const onShowCart = function () {
   const data = store.currentCart.currentProducts
-  const total = data.map((item) => item.price).reduce((acc, price) => acc + price)
-  store.currentCart.cart.order.total = total
-  $('.cart-products').append(cart({ products: data, cartTotal: total }))
+  if (store.currentCart.currentProducts.length > 0) {
+    const total = data.map((item) => item.price).reduce((acc, price) => acc + price)
+    store.currentCart.cart.order.total = total
+    $('.cart-products').append(cart({ products: data, cartTotal: total }))
+  } else {
+    $('.cart-products').append('You have no products in your cart')
+  }
 }
 
 // success message to submit users stored data to orders
 const submitOrderSuccess = function () {
   console.log('Successfully posted an order!')
+  store.currentCart = {
+    cart: {
+      order: {
+        products: [],
+        total: 0
+      }
+    },
+    currentProducts: []
+  }
+  store.myOrders = []
+  store.productIdArr = []
 }
 
 // failure message for submit order
@@ -27,7 +42,6 @@ const showOrdersSuccess = function (data) {
   store.myOrders = data.orders.filter(order => {
     return order._owner === store.user.id
   })
-  console.log('these are my orders right now ', store.myOrders)
   $('.orders-wrap').append(orders({ orders: store.myOrders }))
 }
 
@@ -37,12 +51,10 @@ const showOrdersFailure = function () {
 
 const getOrderSuccess = function (data) {
   store.myOrder = data.order
-  console.log('your order ', data.order)
   displayOrder(store.myOrder)
 }
 
 const getOrderFailure = function (data) {
-  console.log('your order ', data)
   console.log('get order failure')
 }
 
