@@ -38,7 +38,7 @@ const checkout = function () {
     handler.open({
       name: 'Demo Site',
       description: '2 widgets',
-      amount: 2000
+      amount: (store.cartTotal * 100)
     })
     e.preventDefault()
   })
