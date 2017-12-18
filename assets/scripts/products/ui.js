@@ -22,7 +22,18 @@ const onGetProductsFailure = function (error) {
   console.log(error)
 }
 
+const getOrderProductSuccess = function (product) {
+  store.orderProducts.push(product)
+  console.log('product retrieved')
+}
+
+const getOrderProductFailure = function () {
+  console.log('failed to get product')
+}
+
 module.exports = {
   onGetProductsSuccess,
-  onGetProductsFailure
+  onGetProductsFailure,
+  getOrderProductSuccess,
+  getOrderProductFailure
 }

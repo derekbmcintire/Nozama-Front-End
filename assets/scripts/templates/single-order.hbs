@@ -1,0 +1,12 @@
+<h4>Date: {{order.createdAt}}</h4>
+<h5>Total: ${{order.total}}</h5>
+
+{{#each order.products as |product|}}
+<div class="order-display" data-id="{{product.id}}">
+  <ul>
+    <li>{{product.name}}</li>
+    <li>{{product.price}}</li>
+  </ul>
+</div>
+
+{{/each}}

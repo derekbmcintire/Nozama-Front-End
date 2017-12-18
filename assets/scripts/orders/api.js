@@ -15,6 +15,28 @@ const submitOrder = function (data) {
   })
 }
 
+const showOrders = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/orders',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getOrder = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/orders/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  submitOrder
+  submitOrder,
+  showOrders,
+  getOrder
 }
