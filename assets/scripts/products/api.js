@@ -9,7 +9,6 @@ const getProducts = function () {
     method: 'GET'
   })
 }
-
 const deleteProduct = function (id) {
   return $.ajax({
     url: config.apiOrigin + '/products/' + id,
