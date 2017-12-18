@@ -62,21 +62,38 @@ const onGetProductsFailure = function (error) {
   console.log(error)
 }
 
+
 const createSuccess = function () {
   console.log('Product Created')
 }
 
 const createFailure = function (error) {
   console.log(error)
+
+const getOrderProductSuccess = function (product) {
+  store.orderProducts.push(product)
+  console.log('product retrieved')
+}
+
+const getOrderProductFailure = function () {
+  console.log('failed to get product')
+
 }
 
 module.exports = {
   onGetProductsSuccess,
   onGetProductsFailure,
+
   updateSuccess,
   populateUpdateFields,
   deleteSuccess,
   deleteFailure,
+
   createSuccess,
-  createFailure
+  createFailure,
+
+
+  getOrderProductSuccess,
+  getOrderProductFailure
+
 }
