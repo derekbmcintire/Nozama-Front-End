@@ -56,6 +56,8 @@ const onGetProductsSuccess = function (data) {
   $('.admin').hide()
   if (store.user.admin) {
     $('.admin').show()
+  } else {
+    console.log('you are not an admin')
   }
 }
 
