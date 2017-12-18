@@ -5,13 +5,17 @@ const api = require('./api')
 const ui = require('./ui')
 const $script = require('scriptjs')
 
-$script('https://checkout.stripe.com/checkout.js', function () {
+// stripe script that adds modal to html and allows for ajax request
+// to get a users token to be stored for their order
+const checkout = function () {
   const handler = StripeCheckout.configure({
     key: 'pk_test_OTB8FL8IFKn9v24Qi7h64eCz',
     image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
     locale: 'auto',
     token: function (token) {
-      console.log('token is ', token)
+      if (token) {
+        onSubmitCart()
+      }
       const tokenData = {
         token: {
           token_id: token.id
@@ -21,7 +25,7 @@ $script('https://checkout.stripe.com/checkout.js', function () {
       // Get the token ID to your server-side code for use.
       const sendToken = function (data) {
         return $.ajax({
-          url: 'https://still-thicket-16022.herokuapp.com/tokens',
+          url: 'localhost:4741/tokens',
           method: 'POST',
           data
         })
@@ -34,7 +38,7 @@ $script('https://checkout.stripe.com/checkout.js', function () {
     handler.open({
       name: 'Demo Site',
       description: '2 widgets',
-      amount: 2000
+      amount: (store.cartTotal * 100)
     })
     e.preventDefault()
   })
@@ -42,20 +46,25 @@ $script('https://checkout.stripe.com/checkout.js', function () {
   window.addEventListener('popstate', function () {
     handler.close()
   })
-})
+}
 
+$script('https://checkout.stripe.com/checkout.js', checkout)
+
+// show cart (hbs template) and hide products
 const showCart = function () {
   $('.products-wrap').hide()
   $('.shopping-cart').show()
   ui.onShowCart()
 }
 
+// show products and hide users cart
 const hideCart = function () {
   $('.shopping-cart').hide()
   $('.products-wrap').show()
   $('.cart-products').html('')
 }
 
+// submit cart items data to store.js
 const onSubmitCart = function () {
   const productArray = store.currentCart.currentProducts
   productArray.forEach((product) => {
@@ -69,6 +78,7 @@ const onSubmitCart = function () {
     .catch(ui.submitOrderFailure)
 }
 
+// remove product from users cart
 const onRemoveProduct = function () {
   const productId = $(event.target).parent().data('id')
   const productArray = store.currentCart.currentProducts
@@ -79,11 +89,29 @@ const onRemoveProduct = function () {
   showCart()
 }
 
+const onShowOrders = function () {
+  api.showOrders()
+    .then(ui.showOrdersSuccess)
+    .catch(ui.showOrdersFailure)
+  $('.products-wrap').hide()
+  $('.shopping-cart').hide()
+  $('.orders-wrap').show()
+}
+
+const onGetOrder = function (event) {
+  const id = $(event.target).parent().parent().parent().data('id')
+  api.getOrder(id)
+    .then(ui.getOrderSuccess)
+    .catch(ui.getOrderFailure)
+}
+
 const addOrderHandlers = function () {
   $('#show-shopping-cart').on('click', showCart)
   $('#exit-cart').on('click', hideCart)
   $('#submit-cart').on('click', onSubmitCart)
   $('.cart-products').on('click', '.remove-product', onRemoveProduct)
+  $('#show-past-orders').on('click', onShowOrders)
+  $('.orders-wrap').on('click', '.get-order', onGetOrder)
 }
 
 module.exports = {
