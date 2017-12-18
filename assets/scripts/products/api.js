@@ -23,17 +23,30 @@ const deleteProduct = function (id) {
   })
 }
 
-// const getSingleProduct = function () {
-//   return $.ajax({
-//     url: config.apiOrigin + '/products',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const updateProduct = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/products/' + store.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const findProduct = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/products/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   getProducts,
-  deleteProduct
+  deleteProduct,
+  updateProduct,
+  findProduct
 }
