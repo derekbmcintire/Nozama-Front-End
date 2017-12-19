@@ -1,6 +1,6 @@
-READ ME
+README
 
-Express E-Commerce Team Project
+Express E-Commerce Team Project / Front-End
 
 Links:
 
@@ -9,13 +9,14 @@ Front-End Repo:  https://github.com/Tbdwdi/Nozama-Front-End
 Back-End Deployed Site:  https://still-thicket-16022.herokuapp.com/
 Back-End Repo:  https://github.com/Tbdwdi/Nozama-Back-End
 
-Technologies used: Express, Mongo, Mongoose, NodeJs, Javascript, Handlebars, Bootstrap, Sass
+Technologies used: Javascript, Handlebars, Bootstrap, Sass, HTML5, AJAX, jQuery, webpack, Stripe
 
-What is Nozama?
+What is Nozama and how does it work?
 
-Nozama is an E-Commerce site created by Derek McIntire, Peter Samson and Brian Cameron.  Together, using express/mongo as a back end api (and stripe as a third party api for checkout), we have created a simple shopping site.  The user may browse the site to view the products but must sign in to access the sites functionality.  From there a user may add products to their cart and proceed to a checkout where they may submit their order.  From their the user must fill out the appropriate fields for their order to be processed through stripe.  Once the order has been confirmed their cart is stored and is ready to be processed into our database.  
+Nozama is an E-Commerce site created by Derek McIntire, Peter Samson and Brian Cameron.  Together, using express/mongo as a back end api (and stripe as a third party api for checkout), we have created a simple shopping site.  The user may browse the site to view the products but must sign in to access the sites functionality.  From there a user may add products to their cart and proceed to a checkout where they may submit their order.  From their the user must fill out the appropriate fields for their order to be processed through stripe.  Once the order has been confirmed their cart is stored and is ready to be processed into our database.
 
-User Stories :
+Wireframes  : View 1 https://imgur.com/gallery/Q9k3o, View 2 https://imgur.com/gallery/626Bq, View 3 https://imgur.com/gallery/S2h8R
+User Stories :  https://imgur.com/gallery/Gr7E7
 
 
 developer:
