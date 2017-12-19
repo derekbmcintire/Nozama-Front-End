@@ -29,6 +29,7 @@ const signInSuccess = function (data) {
   $('.add-product-button').show()
   if (store.user.admin) {
     $('.admin').show()
+    $('.user-btn').hide()
   }
   // reminder from brian { add html classes to clear forms }
 }
