@@ -1,4 +1,5 @@
 'use strict'
+/* global StripeCheckout */
 
 const store = require('../store')
 const api = require('./api')
