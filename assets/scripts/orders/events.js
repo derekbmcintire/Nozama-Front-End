@@ -25,7 +25,7 @@ const checkout = function () {
       // Get the token ID to your server-side code for use.
       const sendToken = function (data) {
         return $.ajax({
-          url: 'localhost:4741/tokens',
+          url: 'https://still-thicket-16022.herokuapp.com',
           method: 'POST',
           data
         })
