@@ -61,6 +61,8 @@ const onCreateEvent = function (event) {
     .then(onGetProducts)
     .catch(ui.createFailure)
   $('#create-product').children('input').val('')
+  $('.url').val('www.jpg')
+  $('.stock').val('1')
 }
 
 const addProductHandlers = function () {
