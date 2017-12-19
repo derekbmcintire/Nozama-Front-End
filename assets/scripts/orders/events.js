@@ -18,7 +18,8 @@ const checkout = function () {
       }
       const tokenData = {
         token: {
-          token_id: token.id
+          token_id: token.id,
+          total: (store.currentCart.cart.order.total * 100)
         }
       }
       // You can access the token ID with `token.id`.
