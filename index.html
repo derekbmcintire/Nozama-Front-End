@@ -47,20 +47,42 @@
 
     <!-- ********************* main ********************************** -->
 
-    <main class="main">
-      <div class="search">
-        <h1 class="mapp">Mapp</h1>
+
+
+        <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Mapp App</h1>
+      <p class="lead">The only fake place for you to not buy real fake maps.</p>
+  </div>
         </div>
-        <nav class="nav-bar">
+        <!-- //////////////////////////// -->
+
+        <nav class="navbar navbar-light bg-light justify-content-between row">
+
+            <button class="btn btn-dark" id="home">Home</button>
+            <button class="btn btn-dark" id="show-sign-in-up">Sign In/Up</button>
+            <button class="btn btn-dark" id="sign-out">Sign Out</button>
+            <button class="btn btn-dark" id="show-change-password">Change Password</button>
+            <button class="btn btn-dark user-btn" id="show-past-orders">View Orders</button>
+            <button class="btn btn-dark user-btn" id="show-shopping-cart">Cart</button>
+
+            <form class="form-inline search-bar">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+  </nav>
+          <!-- //////////////////////////// -->
+
+        <!-- <nav class="nav-bar">
           <button class="btn btn-dark" id="home">Home</button>
           <button class="btn btn-dark" id="show-sign-in-up">Sign In/Up</button>
-          <!-- <button class="btn btn-dark" id="show-sign-up">Sign Up</button> -->
+        <button class="btn btn-dark" id="show-sign-up">Sign Up</button>
           <button class="btn btn-dark" id="sign-out">Sign Out</button>
           <button class="btn btn-dark user-btn" id="show-shopping-cart">Cart</button>
           <button class="btn btn-dark" id="show-change-password">Change Password</button>
           <button class="btn btn-dark user-btn" id="show-past-orders">View Orders</button>
-          </nav>
-
+          </nav> -->
+<main class="main">
           <div id="change-password-wrap">
             <fieldset>
             <form id="change-password" class="mechanic">
@@ -72,7 +94,7 @@
           </div>
 
       <div class='products-wrap'>
-        <h4 id="main-message">Welcome to Mapp!</h4>
+        <h4 id="main-message">Current Maps!</h4>
         <form id="create-product" class="mechanic admin">
             <input type="text" name="product[name]" placeholder="name">
             <input type="text" name="product[description]" placeholder="description">

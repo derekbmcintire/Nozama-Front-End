@@ -8,27 +8,37 @@ body {
 
 .btn {
   background-color: transparent;
+  border-radius: 5px;
   padding: 5px;
+  &:hover {
+    outline: 2px solid black;
+  }
+}
+
+.jumbotron {
+  background-color: white;
+  margin-bottom: 0;
 }
 
 .main {
-  background-color: pink;
+  padding: 15px;
 }
 
-.nav-bar {
-  background-color: yellow;
+.navbar {
+  border: 2px solid black;
+  background-color: white;
+  padding-left: 15px;
 }
 
-.mapp {
+.nozama {
   font-size: 18px;
   margin: 0;
   padding: 2px;
 }
 
-.search {
-  background-color: white;
-  margin: 0 auto;
-  padding: 5px;
+.search-bar {
+  display: inline-block;
+  margin-top: 8px;
 }
 
 .sign-in-up-wrap {
