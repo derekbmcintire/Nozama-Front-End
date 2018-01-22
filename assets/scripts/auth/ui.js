@@ -57,6 +57,7 @@ const signOutSuccess = function () {
   $('.shopping-cart').hide()
   $('#show-change-password').hide()
   $('.admin').hide()
+  $('#change-password-wrap').hide()
   $('#sign-out').hide()
   $('#show-past-orders').hide()
   $('#show-shopping-cart').hide()
