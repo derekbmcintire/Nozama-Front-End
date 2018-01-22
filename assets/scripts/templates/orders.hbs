@@ -1,12 +1,9 @@
 {{#each orders as |order|}}
 
 <div class="order-display" data-id="{{order.id}}">
-  <ul>
     {{!-- <li><button class="btn btn-dark get-order">Date: {{order.createdAt}}</button></li> --}}
-    <li>Date: {{order.createdAt}}</li>
-    <li>Total: ${{order.total}}</li>
-    {{!-- <li>Number of items: {{}}</li> --}}
-  </ul>
+    <h4>Order Date: {{order.createdAt}}</h4>
+    <h5>Order Total: ${{order.total}}</h5>
 </div>
 
 {{/each}}

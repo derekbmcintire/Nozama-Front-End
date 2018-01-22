@@ -13,8 +13,10 @@ const onShowCart = function () {
     store.currentCart.cart.order.total = total
     $('.cart-products').append(cart({ products: data, cartTotal: total }))
     $('.order-wrap').html('')
+    $('#submit-cart-stripe').show()
   } else {
     $('.cart-products').append('You have no products in your cart')
+    $('#submit-cart-stripe').hide()
   }
 }
 
@@ -44,9 +46,9 @@ const showOrdersSuccess = function (data) {
     return order._owner === store.user.id
   })
   if (store.myOrders.length > 0) {
-    $('.orders-wrap').append(orders({ orders: store.myOrders }))
+    $('.past-orders').append(orders({ orders: store.myOrders }))
   } else {
-    $('.orders-wrap').append('<p>You have no orders</p>')
+    $('.past-orders').append('<p>You have no orders</p>')
   }
 }
 

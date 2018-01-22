@@ -67,7 +67,7 @@ const showCart = function () {
   $('#change-password-wrap').hide()
   $('.shopping-cart').show()
   $('.order-wrap').html('')
-  $('.orders-wrap').html('')
+  $('.past-orders').html('')
   ui.onShowCart()
 }
 
@@ -105,7 +105,7 @@ const onRemoveProduct = function () {
 }
 
 const onShowOrders = function () {
-  $('.orders-wrap').html('')
+  $('.past-orders').html('')
   api.showOrders()
     .then(ui.showOrdersSuccess)
     .catch(ui.showOrdersFailure)
