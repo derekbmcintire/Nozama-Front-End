@@ -11,16 +11,16 @@ Originially titled Nozama, Nozamaps is my personal cloned copy which I have styl
 
 ## Deployed Sites and GitHub Repositories
 
-[Deployed Client] (https://derekbmcintire.github.io/Nozama-Front-End/)
-[Client GitHub Repository]  (https://github.com/derekbmcintire/Nozama-Front-End)
-[Deployed API] (https://dry-journey-16743.herokuapp.com/)
-[API GitHub Repository] (https://github.com/derekbmcintire/Nozama-Back-End)
+- [Deployed Client](https://derekbmcintire.github.io/Nozama-Front-End/)
+- [Client GitHub Repository](https://github.com/derekbmcintire/Nozama-Front-End)
+- [Deployed API](https://dry-journey-16743.herokuapp.com/)
+- [API GitHub Repository](https://github.com/derekbmcintire/Nozama-Back-End)
 
 ## Technologies used
+
 Javascript, Handlebars, Bootstrap, Sass, HTML5, AJAX, jQuery, webpack, Stripe
 
-
-## User Stories and Wireframes
+## User Stories and Wireframe
 
 #### User Stories
 - A user can create an account and sign in
@@ -31,7 +31,6 @@ Javascript, Handlebars, Bootstrap, Sass, HTML5, AJAX, jQuery, webpack, Stripe
 - A user can see a total on their order
 - A user can purchase items via Stripe Checkout
 - A user can see their past orders
--
-![wireframe1](https://imgur.com/gallery/Q9k3o)
-![wireframe2](https://imgur.com/gallery/626Bq)
-![wireframe3](https://imgur.com/gallery/S2h8R)
+
+#### Wireframe
+![wireframe1](https://c1.staticflickr.com/5/4759/38944611215_b4e26d9a6b_z.jpg)
