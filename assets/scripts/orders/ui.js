@@ -46,9 +46,9 @@ const showOrdersSuccess = function (data) {
     return order._owner === store.user.id
   })
   if (store.myOrders.length > 0) {
-    $('.past-orders').append(orders({ orders: store.myOrders }))
+    $('.orders-wrap').append(orders({ orders: store.myOrders }))
   } else {
-    $('.past-orders').append('<p>You have no orders</p>')
+    $('.orders-wrap').append('<p>You have no orders</p>')
   }
 }
 
