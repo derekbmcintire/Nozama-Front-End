@@ -1,14 +1,22 @@
 {{#each products as |product|}}
-
-  <ul class="product-form" data-id="{{product.id}}">
-    <div>Name: {{product.name}}</div>
-    <div>Description: {{product.description}}</div>
-    <div>Price: ${{product.price}}</div>
-    {{!-- <div>Stock: {{product.stock}}</div> --}}
-    <div class="add-resource-product">
-        <button class="add-product-button user-btn" type ="button" data-id="{{product.id}}">Add Product</button>
+<div class="row product">
+  <div class="col-sm-4">
+    <img class="prod-img" src="{{product.url}}">
     </div>
-    <button class="btn admin remove" type="button" name="button">Remove</button>
-    <button class="btn admin update" type="button" name="button">Update</button>
-  </ul>
+    <div class="col-sm-8">
+      <div class="product-form" data-id="{{product.id}}">
+        <h3>{{product.name}}</h3>
+        <p>{{product.description}}</p>
+        <h4>${{product.price}}</h4>
+        {{!-- <div>Stock: {{product.stock}}</div> --}}
+        <div class="add-resource-product">
+            <button class="btn-success add-product-button user-btn" type ="button" data-id="{{product.id}}">Add Product</button>
+        </div>
+        <button class="btn admin remove" type="button" name="button">Remove</button>
+        <button class="btn admin update" type="button" name="button">Update</button>
+      </div>
+      </div>
+  </div>
+
+
 {{/each}}

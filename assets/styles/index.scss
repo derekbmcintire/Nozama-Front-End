@@ -6,8 +6,13 @@ body {
   margin: 0;
 }
 
+.banner {
+ background-image: url('https://c1.staticflickr.com/5/4663/39806299612_18bf8a6e5c_o.jpg');
+ background-size: cover;
+ background-position: center;
+}
+
 .btn {
-  background-color: transparent;
   border-radius: 5px;
   padding: 5px;
   &:hover {
@@ -15,8 +20,16 @@ body {
   }
 }
 
+.cart-product-display {
+  border-top: 1px solid black;
+  margin: 0 auto;
+  padding: 5px;
+  width: 100%;
+}
+
 .jumbotron {
-  background-color: white;
+  background-color: transparent;
+  color: white;
   margin-bottom: 0;
 }
 
@@ -27,7 +40,7 @@ body {
 .navbar {
   border: 2px solid black;
   background-color: white;
-  padding-left: 15px;
+  padding-left: 35px;
 }
 
 .nozama {
@@ -36,9 +49,25 @@ body {
   padding: 2px;
 }
 
-.search-bar {
+.prod-img {
+  width: 80%;
+}
+
+.product {
+  border-top: 1px solid black;
+  margin: 0 auto;
+  padding: 5px;
+  width: 80%;
+}
+
+.search-bar-form {
   display: inline-block;
   margin-top: 8px;
+}
+
+.shopping-cart {
+  margin: 0 auto;
+  width: 70%;
 }
 
 .sign-in-up-wrap {
@@ -49,6 +78,26 @@ body {
 }
 
 .sign-message {
-  margin: 0 auto;
+  height: 20px;
+  margin: 10px 0, 0, 0;
   text-align: center;
+  width: 100%;
+}
+
+.srch-bar {
+  padding-right: 25px;
+}
+
+.srch-btn {
+  margin-left: -35px;
+}
+.srch-btn:hover {
+  outline: none;
+}
+
+.total {
+  border-top: 1px solid black;
+  margin: 20px auto;
+  padding: 5px;
+  width: 100%;
 }
