@@ -4,6 +4,9 @@ const store = require('../store')
 // display message on sign up success
 const signUpSuccess = function (data) {
   $('.sign-message').text('You signed-up successfully!')
+  setTimeout(() => {
+    $('.sign-message').text('')
+  }, 2000)
   $('.form-control').val('')
 }
 
@@ -31,6 +34,9 @@ const signInSuccess = function (data) {
     $('.admin').show()
     $('.user-btn').hide()
   }
+  setTimeout(() => {
+    $('.sign-message').text('')
+  }, 2000)
   // reminder from brian { add html classes to clear forms }
 }
 
@@ -68,6 +74,9 @@ const signOutSuccess = function () {
   }
   store.myOrders = []
   store.productIdArr = []
+  setTimeout(() => {
+    $('.sign-message').text('')
+  }, 2000)
   // reminder from brian { add html classes to clear forms }
 }
 

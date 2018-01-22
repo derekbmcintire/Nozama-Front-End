@@ -27,14 +27,20 @@ const checkout = function () {
       // Get the token ID to your server-side code for use.
       const sendToken = function (data) {
         return $.ajax({
-          url: 'https://still-thicket-16022.herokuapp.com/tokens',
+          url: 'https://dry-journey-16743.herokuapp.com/',
           method: 'POST',
           data
         })
       }
       sendToken(tokenData)
-        .then(() => $('.sign-message').text('Payment Successful'))
-        .catch(() => $('.sign-message').text('Payment Failed'))
+        .then(() => {
+          $('.sign-message').text('Payment Successful')
+          hideCart()
+        })
+        .catch(() => {
+          $('.sign-message').text('Payment Failed')
+          hideCart()
+        })
     }
   })
   document.getElementById('submit-cart-stripe').addEventListener('click', function (e) {
