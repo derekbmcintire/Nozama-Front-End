@@ -16,9 +16,10 @@ const goHome = function () {
 }
 
 const onGetProducts = function () {
+  $('.loader').show()
   api.getProducts()
     .then(ui.onGetProductsSuccess)
-    // .catch(ui.onGetProductsFailure)
+    .catch(ui.onGetProductsFailure)
 }
 
 // add product to users cart callback

@@ -54,6 +54,7 @@ const onGetProductsSuccess = function (data) {
   // append content to div
   $('.show-products-content').append(showProducts)
   $('.admin').hide()
+  $('.loader').hide()
   $('.add-product-button').hide()
   if (store.user.admin) {
     $('.admin').show()
