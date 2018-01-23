@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Nozamaps</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+<!-- ********************************************************************* -->
+
+
+
+    <!-- ********************* main ********************************** -->
+<div class="banner">
+
+
+        <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Nozamaps</h1>
+      <p class="lead">Real maps for fake sale.</p>
+  </div>
+        </div>
+        </div>
+        <!-- //////////////////////////// -->
+
+        <nav class="navbar navbar-light bg-light justify-content-between row">
+
+            <button class="btn btn-dark" id="home">Home</button>
+            <button class="btn btn-dark" id="show-sign-in-up">Sign In/Up</button>
+            <button class="btn btn-dark" id="sign-out">Sign Out</button>
+            <button class="btn btn-dark" id="show-change-password">Change Password</button>
+            <button class="btn btn-dark user-btn" id="show-past-orders">View Orders</button>
+
+
+            <!-- <form class="form-inline search-bar-form">
+              <input class="form-control srch-bar mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0 srch-btn" type="submit">&#x1f50d;</button>
+            </form> -->
+
+            <button class="btn btn-dark user-btn" id="show-shopping-cart">Cart</button>
+  </nav>
+
+<h5 class="sign-message"></h5>
+
+
+  <!-- ***********sign up/in*************** -->
+  <div class="row sign-in-up-wrap">
+  <div id="sign-in-wrap">
+    <!-- sign in form -->
+    <form id="sign-in">
+      <fieldset>
+        <h3 class='heading'>Sign In</h3>
+        <input class="form-control form-control-sm" type="text" id="sign-in-email" name="credentials[email]" placeholder="Email">
+        <input class="form-control form-control-sm" type="password" id="sign-in-password" name="credentials[password]" placeholder="Password">
+        <input class="btn btn-light" id="sign-in-btn" type="submit" name="submit" value="Sign In">
+      </fieldset>
+    </form>
+      <!-- <p>Don't have an account? <button class="bike-btn" id="switch-to-sign-up">Sign up</button></p> -->
+  </div>
+
+  <div id="sign-up-wrap">
+  <!-- sign up form -->
+  <form id="sign-up">
+    <fieldset>
+      <h3>Sign Up</h3>
+      <input class="form-control form-control-sm" type="text" id="sign-up-email" name="credentials[email]" placeholder="Email">
+      <input class="form-control form-control-sm" type="password" id="sign-up-password" name="credentials[password]" placeholder="Password">
+      <input class="form-control form-control-sm" type="password" id="sign-up-password-confirm" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+      <input class="btn btn-light" id="sign-up-btn" type="submit" name="submit" value="Sign Up">
+    </fieldset>
+  </form>
+    <!-- <p>Already have an account? <button class="bike-btn" id="switch-to-sign-in">Sign in</button></p> -->
+  </div>
+  </div>
+
+
+          <!-- //////////////////////////// -->
+
+        <!-- <nav class="nav-bar">
+          <button class="btn btn-dark" id="home">Home</button>
+          <button class="btn btn-dark" id="show-sign-in-up">Sign In/Up</button>
+        <button class="btn btn-dark" id="show-sign-up">Sign Up</button>
+          <button class="btn btn-dark" id="sign-out">Sign Out</button>
+          <button class="btn btn-dark user-btn" id="show-shopping-cart">Cart</button>
+          <button class="btn btn-dark" id="show-change-password">Change Password</button>
+          <button class="btn btn-dark user-btn" id="show-past-orders">View Orders</button>
+          </nav> -->
+<main class="main">
+          <div class="change-pw-wrap" id="change-password-wrap">
+            <fieldset>
+            <form id="change-password" class="mechanic">
+              <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password"><br>
+              <input class="form-control" type="password" name="passwords[new]" placeholder="New Password"><br>
+              <button type="submit" class="btn btn-default">Change Password</button>
+            </form>
+          </fieldset>
+          </div>
+
+      <div class='products-wrap'>
+        <h4 class="text-center" id="main-message">Current Maps</h4>
+        <div class="loader">
+        <img src="https://c1.staticflickr.com/5/4764/25984119178_45d797b835_o.gif" id="loader">
+        <h5>Loading maps...</h5>
+        </div>
+        <form id="create-product" class="mechanic admin">
+            <input type="text" name="product[name]" placeholder="name">
+            <input type="text" name="product[description]" placeholder="description">
+            <input type="text" class="url" name="product[url]" placeholder="www.jpg">
+            <input type="hidden" class="stock" name="product[stock]" value="1">
+            <input type="number" name="product[price]" placeholder="price">
+          <button type="submit" class="btn btn-default">Add Product</button>
+        </form>
+        <form id="update-product" data-id='' class="mechanic">
+          <input id="update-name" type="text" name="product[name]" value="">
+          <input id="update-description" type="text" name="product[description]" value="">
+          <input id="update-url" class="url" type="text" name="product[url]" placeholder="www.jpg">
+          <input id="update-stock" class="stock" type="hidden" name="product[stock]" value="1">
+          <input id="update-price" type="number" name="product[price]" value="">
+        <button type="submit" class="btn btn-default">Update Product</button>
+      </form>
+          </br>
+          <div class="show-products-content">
+          </div>
+      </div>
+
+      <!-- ****************** orders *************************** -->
+
+      <div class="orders-wrap">
+        </div>
+
+      <!-- ****************** shopping cart *************************** -->
+
+      <div class="shopping-cart">
+        <!-- <script src="https://checkout.stripe.com/checkout.js"></script> -->
+        <h4>Your Cart</h4>
+        <div class="cart-products">
+        </div>
+        <button class="btn-success" id="submit-cart-stripe">Submit Order</button>
+
+        <!-- <button class="btn" id="exit-cart">Exit Cart</button> -->
+      </div>
+
+    </main>
+    </body>
+</html>
